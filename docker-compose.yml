@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  service:
+    container_name: transformer_proxy
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "9976:5000"
+    environment:
+      - FLASK_APP=app
+      - FLASK_ENV=development
+      
+      
