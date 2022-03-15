@@ -41,9 +41,9 @@ def _find_next_transformation_id():
 @app.post("/submit")
 def submit_job():
     # try:
-        # print(request.get_json())
+        print(request.get_json())
         demand = json.loads(request.get_json())
-        # print(demand)
+        print(demand)
         process_query(demand)
             
         return demand,201
