@@ -1,10 +1,10 @@
 FROM python:3.8-alpine
 
-RUN python3 -m pip install flask
 
 WORKDIR /code
 
 COPY . /code
 
+RUN pip3 install -r requirements.txt
 
 CMD ["flask","run"]

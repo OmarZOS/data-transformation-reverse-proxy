@@ -7,11 +7,12 @@ This repository holds the necessary code to initiate a reverse proxy that is mea
 
 ### Progress:
 
- - [ ] REST server. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/30)
+ - [ ] REST server. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/33)
    - [x] Simple server.
    - [ ] Third party service subscription.
-   - [ ] Service subscription.
- - [ ] Listening to a canal. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/80)
+   - [ ] Service identifying.
+ - [ ] Listening to a canal. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
    - [x] Simple client.
    - [ ] Dynamic listening.
- - [ ] Containerisation. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
+ - [x] Data sending. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/80)
+ - [x] Containerisation. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)

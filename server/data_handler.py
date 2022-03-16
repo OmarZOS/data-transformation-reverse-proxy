@@ -1,10 +1,17 @@
-
-
-
-
+from server.data_senders.RabbitMQ_client import rmq_send_data
 
 
 def handle_data(api,data):
+    
+    rmq_send_data(api,data)    
+    
+    
+    
+    # if(data["road_map"]):
+        
+    # else:
+    #     pass
+    
     
     # indexer = Indexer(api)
     

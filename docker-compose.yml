@@ -1,15 +1,30 @@
 version: '3.3'
 
 services:
-  service:
-    container_name: transformer_proxy
+  transformer_proxy:
+    container_name: phoros-transformer-proxy
     build: server/
+    image: omarzos/transformer-proxy
     volumes:
       - .:/code
     ports:
       - "9976:5000"
     environment:
-      - FLASK_APP=app
+      - FLASK_APP=server.app
       - FLASK_ENV=development
-      
+      - RABBIT_MQ_USER=omar
+      - RABBIT_MQ_PASSWORD=omar
+      - RABBIT_MQ_HOST=rabbitmq-broker
+      - RABBIT_MQ_PORT=5672
+      - RABBIT_MQ_LISTEN_EXCHANGE=transform
+      - RABBIT_MQ_PUBLISH_USER=omar
+      - RABBIT_MQ_PUBLISH_PASSWORD=omar
+      - RABBIT_MQ_PUBLISH_HOST=rabbitmq-broker
+      - RABBIT_MQ_PUBLISH_PORT=5672
+      - RABBIT_MQ_PUBLISH_EXCHANGE=storage
+    networks:
+      - phoros_net
+networks:
+  phoros_net:
+    external:  true      
       

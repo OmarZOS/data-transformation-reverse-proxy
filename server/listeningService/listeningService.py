@@ -8,6 +8,12 @@ class listeningService(ABC):
     def receiveData(self):
         pass
 
+class transformlisteningService(listeningService):
+    
+    @abstractmethod
+    def receiveData(self):
+        pass
+
 
 
 
