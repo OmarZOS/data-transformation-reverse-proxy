@@ -9,12 +9,12 @@ manager = Manager()
 # this shared data structure will hold services that would receive potential data
 transformations = manager.dict()
 
-print(RMQ_LISTEN_EXCHANGE)
+# print(RMQ_LISTEN_EXCHANGE)
 rabbitmq_listener = rabbitMQ_Implementation(RMQ_LISTEN_EXCHANGE,transformations)
 # on the other side, rabbitmq is mainly here to handle the system's internal data
-rabbitmq_listener = Process(target=rabbitMQ_Implementation, args=(RMQ_LISTEN_EXCHANGE,transformations,))
-# then I'll tell you all about it when I see you again..
-rabbitmq_listener.start()
+# rabbitmq_listener = Process(target=rabbitMQ_Implementation, args=(RMQ_LISTEN_EXCHANGE,transformations,))
+# # then I'll tell you all about it when I see you again..
+# rabbitmq_listener.start()
 
 
 app = Flask(__name__)

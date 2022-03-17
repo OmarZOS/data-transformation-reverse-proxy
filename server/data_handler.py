@@ -1,8 +1,10 @@
 from server.data_senders.RabbitMQ_client import rmq_send_data
 
 
-def handle_data(api,data):
+def handle_data(api,data,destination):
     
+    print("Sending ")
+    print(data)
     rmq_send_data(api,data)    
     
     

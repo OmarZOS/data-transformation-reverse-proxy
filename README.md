@@ -16,3 +16,5 @@ This repository holds the necessary code to initiate a reverse proxy that is mea
    - [ ] Dynamic listening.
  - [x] Data sending. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/80)
  - [x] Containerisation. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
+   - Light footprint.
+   - Automation of deployment.

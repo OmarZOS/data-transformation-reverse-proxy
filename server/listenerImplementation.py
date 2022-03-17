@@ -17,8 +17,8 @@ class rabbitMQ_Implementation(transformlisteningService):
         creds = pika.PlainCredentials(username=user,password=password)
         connection = pika.BlockingConnection(pika.ConnectionParameters(host=hostName,credentials=creds,port=RMQ_PORT))#port=portNumber, ,  credentials= self.credentials
         channel = connection.channel()
-        print (exchange)
-        channel.exchange_declare(exchange,exchange_type=ExchangeType.direct)#durable=True,
+        
+        channel.exchange_declare(exchange,exchange_type=ExchangeType.direct) # durable=True,
         
         for api in QUEUES: # each queue is dynamically declared
             channel.queue_declare(queue=api)
@@ -32,12 +32,20 @@ class rabbitMQ_Implementation(transformlisteningService):
         return lambda ch, method, properties, body : self.receiveData(api_name,ch, method, properties, body) # das ist kûnst..
     
     def receiveData(self,api_name,ch,method,properties,body):
-        print(body.decode())
-        try:
-            print(json.loads(body.decode()))
-            handle_data(api_name,json.loads(body.decode()))
-        except print(0):
-            pass
+        # print(body.decode())
+        # try:
+        print(json.loads(body.decode()))
+        data = json.loads(body.decode())
+        data["roadmap"],next_destination = self.resolve_service_ids(data["roadmap"])
+    
+        # for now, I just hardcoded it..
+        next_destination = {"type":"rabbitmq"}
+        handle_data(api_name,data,next_destination)
+        # except :
+        # print("An error has occured, please take measures")
+            # pass
+    def resolve_service_ids(self,roadmap): # takes the roadmap, and gets you access to the next destination
+        return roadmap,{}
         
 # if __name__=="__main__":
 #     listener = rabbitMQ_Implementation(RMQ_LISTEN_EXCHANGE)
