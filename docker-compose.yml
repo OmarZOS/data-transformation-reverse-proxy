@@ -7,6 +7,7 @@ services:
     image: omarzos/transformer-proxy
     volumes:
       - .:/code
+    hostname: phoros-transformer-proxy
     ports:
       - "9976:5000"
     environment:
