@@ -1,28 +1,19 @@
-version: '3.3'
-
+version: '3.5'
 services:
   transformer_proxy:
     container_name: phoros-transformer-proxy
     build: server/
     image: omarzos/transformer-proxy
     volumes:
-      - .:/code
+      - ./server:/code
     hostname: phoros-transformer-proxy
+    command: uvicorn --host phoros-transformer-proxy server:app --reload
     ports:
-      - "9976:5000"
-    environment:
-      - FLASK_APP=server.app
-      - FLASK_ENV=development
-      - RABBIT_MQ_USER=omar
-      - RABBIT_MQ_PASSWORD=omar
-      - RABBIT_MQ_HOST=rabbitmq-broker
-      - RABBIT_MQ_PORT=5672
-      - RABBIT_MQ_LISTEN_EXCHANGE=transform
-      - RABBIT_MQ_PUBLISH_USER=omar
-      - RABBIT_MQ_PUBLISH_PASSWORD=omar
-      - RABBIT_MQ_PUBLISH_HOST=rabbitmq-broker
-      - RABBIT_MQ_PUBLISH_PORT=5672
-      - RABBIT_MQ_PUBLISH_EXCHANGE=storage
+      - 9976:8000
+    env_file:
+      - env/rabbitmq_listen.env
+      - env/rabbitmq_publish.env
+      - env/storage.env
     networks:
       - phoros_net
 networks:

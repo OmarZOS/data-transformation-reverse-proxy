@@ -1,3 +1,4 @@
-flask
 pika==1.2.0
-requests==2.27.1
+uvicorn==0.17.6
+fastapi==0.75.0
+httpx==0.22.0

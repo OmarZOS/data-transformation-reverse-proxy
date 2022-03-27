@@ -1,11 +1,11 @@
-from server.data_senders.RabbitMQ_client import rmq_send_data
 
+import wrappers.RabbitMQ_client as broker_channel
 
 def handle_data(api,data,destination):
     
     print("Sending ")
     print(data)
-    rmq_send_data(api,data)    
+    broker_channel.send_data(api,data)
     
     
     
@@ -30,10 +30,3 @@ def handle_data(api,data,destination):
         #             _doc_id = ["other","id"]("id" in item.keys())
         #             indexer.index(doc_type=k,doc_id=str(_doc_id),doc_body=item)
         #     #     pass
-                
-    
-    
-    
-    
-
-

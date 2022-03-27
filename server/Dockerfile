@@ -7,4 +7,4 @@ COPY . /code
 
 RUN pip3 install -r requirements.txt
 
-CMD ["flask","run"]
+CMD ["uvicorn","--host","phoros-transformer-proxy","server:app","--reload"]
