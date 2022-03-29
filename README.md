@@ -11,11 +11,11 @@ This repository holds the necessary code to initiate a reverse proxy that is mea
 
 ### Progress:
 
- - [ ] REST server. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/52)
+ - [ ] REST server. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/70)
    - [x] Simple server.
    - [ ] Third party service subscription.
    - [ ] Service identifying.
- - [ ] Listening to a canal. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
+ - [x] Listening to a canal. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/90)
    - [x] Simple client.
    - [ ] Dynamic listening.
  - [x] Data sending. ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/80)
@@ -23,5 +23,5 @@ This repository holds the necessary code to initiate a reverse proxy that is mea
 
 >---
 >**NOTES:**
->- This component's internal flow is dependent on the existence of a container holding rabbit-mq broker.
+>- This component's internal flow is dependent on the existence of a container running rabbit-mq broker.
 >---

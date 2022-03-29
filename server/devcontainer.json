@@ -1,5 +1,0 @@
-{
-    "image": "python:3.8-alpine",
-    "extensions": ["dbaeumer.vscode-eslint"],
-    "forwardPorts": [3000]
-}
